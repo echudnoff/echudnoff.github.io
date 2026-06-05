@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Guide — Elijah Chudnoff</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#faf9f6; --text:#1a1814; --accent:#7b2d35; --muted:#706b65; --light:#9a9590; --rule:#ddd9d3; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'EB Garamond',Georgia,serif; background:var(--bg); color:var(--text); font-size:19px; line-height:1.75; }
+        nav { border-bottom:1px solid var(--rule); padding:1.25rem 3.5rem; display:flex; justify-content:space-between; align-items:baseline; }
+        .nav-name { font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; color:var(--text); }
+        .nav-links { display:flex; gap:2.5rem; list-style:none; }
+        .nav-links a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; color:var(--muted); transition:color .15s; }
+        .nav-links a:hover { color:var(--text); }
+        .nav-links a.active { color:var(--accent); }
+        main { max-width:760px; margin:0 auto; padding:4.5rem 2rem 7rem; }
+        h1 { font-size:2.4rem; font-weight:400; font-style:italic; letter-spacing:-0.015em; margin-bottom:2rem; }
+        .placeholder-note { font-size:1rem; color:var(--muted); border-top:1px solid var(--rule); padding-top:1.5rem; }
+        .placeholder-note a { color:var(--accent); text-decoration:none; }
+        .placeholder-note a:hover { text-decoration:underline; }
+        @media (max-width:640px) { nav { flex-direction:column; gap:1rem; padding:1.1rem 1.5rem; } .nav-links { gap:1.4rem; flex-wrap:wrap; } main { padding:2.5rem 1.4rem 5rem; } }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-name" href="index.html">Elijah Chudnoff</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="writing-guide.html" class="active">Writing Guide</a></li>
+    </ul>
+</nav>
+<main>
+    <h1>Writing Guide</h1>
+    <p class="placeholder-note">
+        Content for this page is being migrated. In the meantime, the guide is available as a
+        <a href="https://sites.google.com/view/echudnoff/writing-guide" target="_blank">PDF on the previous site</a>.
+    </p>
+</main>
+</body>
+</html>

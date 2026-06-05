@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research — Elijah Chudnoff</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf9f6;
+            --text: #1a1814;
+            --accent: #7b2d35;
+            --muted: #706b65;
+            --light: #9a9590;
+            --rule: #ddd9d3;
+            --tag-bg: #f0ece6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'EB Garamond', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 19px;
+            line-height: 1.75;
+        }
+
+        /* NAV */
+        nav {
+            border-bottom: 1px solid var(--rule);
+            padding: 1.25rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .nav-name {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 200;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.15s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--accent); }
+
+        /* LAYOUT */
+        main { max-width: 760px; margin: 0 auto; padding: 4.5rem 2rem 7rem; }
+
+        /* PAGE HEADER */
+        .page-header { margin-bottom: 3.5rem; }
+        .page-header h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.1rem;
+        }
+        .pp-note {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--light);
+            border-top: 1px solid var(--rule);
+            padding-top: 0.9rem;
+        }
+        .pp-note a { color: var(--accent); text-decoration: none; }
+        .pp-note a:hover { text-decoration: underline; }
+
+        /* SECTIONS */
+        section { margin-bottom: 4.5rem; }
+        .section-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--light);
+            margin-bottom: 2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* BOOKS */
+        .books-list { display: flex; flex-direction: column; gap: 1.6rem; }
+        .book { display: grid; grid-template-columns: 54px 1fr; gap: 0 1rem; align-items: start; }
+        .book-year {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--light);
+            padding-top: 0.2rem;
+            text-align: right;
+        }
+        .book-year.forthcoming {
+            color: var(--accent);
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+        }
+        .book-title { font-weight: 500; font-style: italic; font-size: 1.08rem; line-height: 1.4; }
+        .book-title a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .book-title a:hover { color: var(--accent); border-color: var(--accent); }
+        .book-pub { font-size: 0.9rem; color: var(--muted); margin-top: 0.15rem; }
+
+        /* PAPERS */
+        .year-group { margin-bottom: 2.2rem; }
+        .year-marker {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            color: var(--accent);
+            margin-bottom: 0.7rem;
+        }
+        .paper {
+            display: grid;
+            grid-template-columns: 54px 1fr;
+            gap: 0 1rem;
+            padding: 0.6rem 0;
+            border-top: 1px solid var(--rule);
+        }
+        .paper-dot {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-top: 0.42rem;
+        }
+        .paper-dot::after {
+            content: '';
+            display: block;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--rule);
+        }
+        .paper-title { font-weight: 500; font-size: 0.97rem; line-height: 1.45; }
+        .paper-title a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .paper-title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .coauthor { font-weight: 400; font-size: 0.91rem; }
+        .paper-meta { font-size: 0.88rem; color: var(--muted); margin-top: 0.1rem; line-height: 1.5; }
+        .paper-meta em { font-style: italic; }
+        .tag {
+            display: inline-block;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--tag-bg);
+            padding: 0.05rem 0.45rem;
+            border-radius: 2px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+            position: relative; top: -1px;
+        }
+
+        /* FOOTER */
+        footer {
+            max-width: 760px; margin: 0 auto;
+            padding: 1.5rem 2rem 3rem;
+            border-top: 1px solid var(--rule);
+        }
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300; font-size: 0.68rem;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--light); text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            nav { flex-direction: column; gap: 1.1rem; padding: 1.1rem 1.5rem; }
+            .nav-links { gap: 1.4rem; flex-wrap: wrap; }
+            main { padding: 2.5rem 1.4rem 5rem; }
+            .book, .paper { grid-template-columns: 44px 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="nav-name" href="index.html">Elijah Chudnoff</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="writing-guide.html">Writing Guide</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="page-header">
+        <h1>Research</h1>
+        <p class="pp-note">
+            Paper titles link to <a href="https://philpapers.org" target="_blank">PhilPapers</a> entries for abstracts, citations, and downloads. &nbsp;·&nbsp;
+            <a href="https://scholar.google.com/citations?user=tmJ2WJMAAAAJ" target="_blank">Google Scholar</a>
+        </p>
+    </div>
+
+    <!-- BOOKS -->
+    <section>
+        <p class="section-label">Books</p>
+        <div class="books-list">
+
+            <div class="book">
+                <span class="book-year forthcoming">Forthcoming</span>
+                <div>
+                    <div class="book-title">Inferential Processes
+                        <span style="font-style:normal; font-weight:400; font-size:0.92rem"> (with Anna-Sara Malmgren)</span>
+                    </div>
+                    <div class="book-pub">Cambridge University Press</div>
+                </div>
+            </div>
+
+            <div class="book">
+                <span class="book-year">2020</span>
+                <div>
+                    <div class="book-title">
+                        <a href="https://global.oup.com/academic/product/forming-impressions-9780198863021" target="_blank">Forming Impressions: Expertise in Perception and Intuition</a>
+                    </div>
+                    <div class="book-pub">Oxford University Press</div>
+                </div>
+            </div>
+
+            <div class="book">
+                <span class="book-year">2015</span>
+                <div>
+                    <div class="book-title">
+                        <a href="https://www.amazon.com/Cognitive-Phenomenology-New-Problems-Philosophy/dp/0415660254" target="_blank">Cognitive Phenomenology</a>
+                    </div>
+                    <div class="book-pub">Routledge</div>
+                </div>
+            </div>
+
+            <div class="book">
+                <span class="book-year">2013</span>
+                <div>
+                    <div class="book-title">
+                        <a href="https://www.amazon.com/Intuition-Elijah-Chudnoff/dp/019968300X" target="_blank">Intuition</a>
+                    </div>
+                    <div class="book-pub">Oxford University Press</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PAPERS -->
+    <section>
+        <p class="section-label">Papers</p>
+
+        <div class="year-group">
+            <div class="year-marker">Forthcoming</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Inference, Logical Omniscience, and Fortunate Fallacies</div>
+                    <div class="paper-meta"><em>Australasian Journal of Philosophy</em></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2026</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Reasoned Change in Logic</div>
+                    <div class="paper-meta">In K. McCain &amp; S. Stapleford (eds.), <em>Evidentialism at 40: New Arguments, New Angles</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2025</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">What Mathematical Understanding Need Not Be
+                        <span class="coauthor"> (with Silvia De Toffoli)</span>
+                    </div>
+                    <div class="paper-meta"><em>Journal of Mathematical Behavior</em></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title"><a href="https://philarchive.org/rec/CHUPSK" target="_blank">Perceptually Secured Knowledge</a></div>
+                    <div class="paper-meta">In J. Beck &amp; F. Masrour (eds.), <em>The Relational View of Perception: New Essays</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2024</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTNA-2" target="_blank">The Nature and Value of Firsthand Insight</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophical Studies</em></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://academic.oup.com/book/58199/chapter/481534984" target="_blank">Inferential Seemings</a>
+                    </div>
+                    <div class="paper-meta">In U. Kriegel (ed.), <em>Oxford Studies in the Philosophy of Mind</em>, Vol. 4. Oxford University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUHTU" target="_blank">How to Use Thought Experiments</a>
+                    </div>
+                    <div class="paper-meta">In B. Roeber, E. Sosa, M. Steup &amp; J. Turri (eds.), <em>Contemporary Debates in Epistemology</em>, 3rd ed. Wiley-Blackwell<span class="tag">chapter</span></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">How to Think About How to Use Thought Experiments</div>
+                    <div class="paper-meta">In B. Roeber, E. Sosa, M. Steup &amp; J. Turri (eds.), <em>Contemporary Debates in Epistemology</em>, 3rd ed. Wiley-Blackwell<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2023</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Skepticism Is Wrong for General Reasons</div>
+                    <div class="paper-meta"><em>International Journal for the Study of Skepticism</em> 13(2): 95–104</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philarchive.org/archive/CHUVPS" target="_blank">Veridical Perceptual Seemings</a>
+                    </div>
+                    <div class="paper-meta">In K. McCain &amp; S. Stapleford (eds.), <em>Seemings: New Arguments, New Angles</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2021</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTKO" target="_blank">Two Kinds of Cognitive Expertise</a>
+                    </div>
+                    <div class="paper-meta"><em>Noûs</em> 55(2): 270–292</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2020</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUISO-6" target="_blank">In Search of Intuition</a>
+                    </div>
+                    <div class="paper-meta"><em>Australasian Journal of Philosophy</em> 98(3): 465–480</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/BROCAK" target="_blank">Consciousness and Knowledge</a>
+                        <span class="coauthor"> (with Berit Brogaard)</span>
+                    </div>
+                    <div class="paper-meta">In U. Kriegel (ed.), <em>The Oxford Handbook of the Philosophy of Consciousness</em>. Oxford University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2019</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUIIG" target="_blank">Intuition in the Gettier Problem</a>
+                    </div>
+                    <div class="paper-meta">In S. Heatherington (ed.), <em>Classic Philosophical Arguments: The Gettier Problem</em>. Cambridge University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUEAE-2" target="_blank">Experience and Epistemic Structure: Can Cognitive Penetration Result in Epistemic Downgrade?</a>
+                    </div>
+                    <div class="paper-meta">In T. Chan &amp; A. Nes (eds.), <em>Inference and Consciousness</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2018</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTES-3" target="_blank">The Epistemic Significance of Perceptual Learning</a>
+                    </div>
+                    <div class="paper-meta"><em>Inquiry</em> 61(5–6): 520–542</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHOHPG" target="_blank">How Perception Generates, Preserves, and Mediates Justification</a>
+                        <span class="coauthor"> (with Bartek Chomanski)</span>
+                    </div>
+                    <div class="paper-meta"><em>Inquiry</em> 61(5–6): 559–568</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUEEA-3" target="_blank">Epistemic Elitism and Other Minds</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophy and Phenomenological Research</em> 96(2): 276–298</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Multisensory Consciousness and Synesthesia
+                        <span class="coauthor"> (with Berit Brogaard)</span>
+                    </div>
+                    <div class="paper-meta">In R. J. Gennaro (ed.), <em>The Routledge Handbook of Consciousness</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2017</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTRO-11" target="_blank">The Reality of the Intuitive</a>
+                    </div>
+                    <div class="paper-meta"><em>Inquiry</em> 60(4): 371–385</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2016</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/BROAED-3" target="_blank">Against Emotional Dogmatism</a>
+                        <span class="coauthor"> (with Berit Brogaard)</span>
+                    </div>
+                    <div class="paper-meta"><em>Philosophical Issues</em> 26(1): 59–77</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUIPP-2" target="_blank">Intuition, Presentational Phenomenology, and Awareness of Abstract Objects</a>
+                    </div>
+                    <div class="paper-meta"><em>Florida Philosophical Review</em> 16(1): 117–128</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2015</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUPCA-2" target="_blank">Phenomenal Contrast Arguments for Cognitive Phenomenology</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophy and Phenomenological Research</em> 90(2): 82–104</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTEU" target="_blank">The Epistemic Unity of Perception</a>
+                        <span class="coauthor"> (with David DiDomenico)</span>
+                    </div>
+                    <div class="paper-meta"><em>Pacific Philosophical Quarterly</em> 96(4): 535–549</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUMPH" target="_blank">Moral Perception: High Level Perception or Low Level Intuition?</a>
+                    </div>
+                    <div class="paper-meta">In D. Breyer &amp; C. Gutland (eds.), <em>Phenomenology of Thinking</em>. Routledge<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2014</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTRR" target="_blank">The Rational Roles of Intuition</a>
+                    </div>
+                    <div class="paper-meta">In A. Booth &amp; D. Rowbottom (eds.), <em>Intuitions</em>. Oxford University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUIIM" target="_blank">Intuition in Mathematics</a>
+                    </div>
+                    <div class="paper-meta">In L. Held &amp; B. Osbeck (eds.), <em>Rational Intuition</em>. Cambridge University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2013</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUAOA" target="_blank">Awareness of Abstract Objects</a>
+                    </div>
+                    <div class="paper-meta"><em>Noûs</em> 47(4): 706–726</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUIIB" target="_blank">Is Intuition Based On Understanding?</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophy and Phenomenological Research</em> 86(1): 42–67</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUIK" target="_blank">Intuitive Knowledge</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophical Studies</em> 162(2): 359–378</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUGPH" target="_blank">Gurwitsch's Phenomenal Holism</a>
+                    </div>
+                    <div class="paper-meta"><em>Phenomenology and the Cognitive Sciences</em> 12(3): 559–578</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUI-4" target="_blank">Intellectual Gestalts</a>
+                    </div>
+                    <div class="paper-meta">In U. Kriegel (ed.), <em>Phenomenal Intentionality</em>. Oxford University Press<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2012</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUPP" target="_blank">Presentational Phenomenology</a>
+                    </div>
+                    <div class="paper-meta">In S. Miguens &amp; G. Preyer (eds.), <em>Consciousness and Subjectivity</em>. Ontos Verlag<span class="tag">chapter</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2011</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUWIA-2" target="_blank">What Intuitions Are Like</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophy and Phenomenological Research</em> 82(3): 625–654</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUTNO" target="_blank">The Nature of Intuitive Justification</a>
+                    </div>
+                    <div class="paper-meta"><em>Philosophical Studies</em> 153(2): 313–333</div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">
+                        <a href="https://philpapers.org/rec/CHUGC" target="_blank">What Should a Theory of Knowledge Do?</a>
+                    </div>
+                    <div class="paper-meta"><em>Dialectica</em> 65(4): 561–579</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- REVIEWS -->
+    <section>
+        <p class="section-label">Book Reviews</p>
+
+        <div class="year-group">
+            <div class="year-marker">2025</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>Philosophical Methodology: From Data to Theory</em>, by J. Bengson, T. Cuneo &amp; R. Shafer-Landau</div>
+                    <div class="paper-meta"><em>Australasian Journal of Philosophy</em> 103(2): 560–562</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2021</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>The Epistemic Role of Consciousness</em>, by Declan Smithies</div>
+                    <div class="paper-meta"><em>The Philosophical Review</em> 130(4): 605–609</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2016</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>The Centered Mind</em>, by Peter Carruthers</div>
+                    <div class="paper-meta"><em>Notre Dame Philosophical Reviews</em></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2015</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>On Reflection</em>, by Hilary Kornblith</div>
+                    <div class="paper-meta"><em>Mind</em> 124(496): 1319–1322</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2014</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>Seemings and Justification</em>, ed. Tucker</div>
+                    <div class="paper-meta"><em>Notre Dame Philosophical Reviews</em></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2011</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>What Place for the A Priori?</em>, ed. Shaffer &amp; Veber</div>
+                    <div class="paper-meta"><em>Notre Dame Philosophical Reviews</em></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-group">
+            <div class="year-marker">2009</div>
+            <div class="paper">
+                <div class="paper-dot"></div>
+                <div>
+                    <div class="paper-title">Review of <em>Mathematical Knowledge</em>, ed. Leng, Paseau &amp; Potter</div>
+                    <div class="paper-meta"><em>Mind</em> 118(471): 846–850</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://philpapers.org/autosense.pl?searchStr=Elijah+Chudnoff" target="_blank">PhilPapers</a>
+        <a href="https://scholar.google.com/citations?user=tmJ2WJMAAAAJ" target="_blank">Google Scholar</a>
+        <a href="mailto:e.chudnoff@miami.edu">e.chudnoff@miami.edu</a>
+    </div>
+</footer>
+
+</body>
+</html>

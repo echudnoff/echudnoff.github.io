@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Elijah Chudnoff</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#faf9f6; --text:#1a1814; --accent:#7b2d35; --muted:#706b65; --light:#9a9590; --rule:#ddd9d3; --tag-bg:#f0ece6; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'EB Garamond',Georgia,serif; background:var(--bg); color:var(--text); font-size:19px; line-height:1.75; }
+        nav { border-bottom:1px solid var(--rule); padding:1.25rem 3.5rem; display:flex; justify-content:space-between; align-items:baseline; }
+        .nav-name { font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; color:var(--text); }
+        .nav-links { display:flex; gap:2.5rem; list-style:none; }
+        .nav-links a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; color:var(--muted); transition:color .15s; }
+        .nav-links a:hover { color:var(--text); }
+        .nav-links a.active { color:var(--accent); }
+        main { max-width:760px; margin:0 auto; padding:4.5rem 2rem 7rem; }
+        h1 { font-size:2.4rem; font-weight:400; font-style:italic; letter-spacing:-0.015em; margin-bottom:0.5rem; }
+        .contact-block { font-size:0.9rem; color:var(--muted); margin-bottom:3rem; padding-bottom:1.5rem; border-bottom:1px solid var(--rule); }
+        .contact-block a { color:var(--accent); text-decoration:none; }
+        section { margin-bottom:3.5rem; }
+        .section-label { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--light); margin-bottom:1.5rem; padding-bottom:0.6rem; border-bottom:1px solid var(--rule); }
+        /* Two-col rows */
+        .cv-row { display:grid; grid-template-columns:130px 1fr; gap:0 1.5rem; padding:0.5rem 0; border-top:1px solid var(--rule); }
+        .cv-row:first-child { border-top:none; }
+        .cv-year { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.07em; color:var(--light); padding-top:0.25rem; }
+        .cv-content { font-size:0.97rem; }
+        .cv-content strong { font-weight:500; }
+        .cv-content em { font-style:italic; }
+        .cv-content .sub { font-size:0.88rem; color:var(--muted); }
+        /* Areas two-col */
+        .areas-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem 2rem; }
+        .area-block {}
+        .area-label { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--light); margin-bottom:0.3rem; }
+        .area-content { font-size:0.92rem; color:var(--muted); }
+        /* Publications */
+        .pub-subsection { margin-bottom:2.5rem; }
+        .pub-sub-label { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; margin-top:1.5rem; }
+        .pub-item { padding:0.45rem 0; border-top:1px solid var(--rule); font-size:0.94rem; line-height:1.6; }
+        .pub-item:first-child { border-top:none; }
+        .pub-item em { font-style:italic; }
+        footer { max-width:760px; margin:0 auto; padding:1.5rem 2rem 3rem; border-top:1px solid var(--rule); }
+        .footer-links { display:flex; gap:2rem; }
+        .footer-links a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--light); text-decoration:none; }
+        .footer-links a:hover { color:var(--accent); }
+        @media (max-width:640px) { nav { flex-direction:column; gap:1rem; padding:1.1rem 1.5rem; } .nav-links { gap:1.4rem; flex-wrap:wrap; } main { padding:2.5rem 1.4rem 5rem; } .cv-row { grid-template-columns:90px 1fr; } .areas-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-name" href="index.html">Elijah Chudnoff</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html" class="active">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="writing-guide.html">Writing Guide</a></li>
+    </ul>
+</nav>
+<main>
+    <h1>Curriculum Vitae</h1>
+    <div class="contact-block">
+        University of Miami &nbsp;·&nbsp; Department of Philosophy<br>
+        1252 Memorial Drive, Ashe 721 &nbsp;·&nbsp; Coral Gables, FL 33124-4670<br>
+        (305) 284-4757 &nbsp;·&nbsp; <a href="mailto:e.chudnoff@miami.edu">e.chudnoff@miami.edu</a>
+    </div>
+
+    <!-- AREAS -->
+    <section>
+        <p class="section-label">Areas</p>
+        <div class="areas-grid">
+            <div class="area-block">
+                <p class="area-label">Specialization</p>
+                <p class="area-content">Theory of Knowledge, Philosophy of Mind</p>
+            </div>
+            <div class="area-block">
+                <p class="area-label">Competence</p>
+                <p class="area-content">Early Modern Philosophy, History of Analytic Philosophy, Logic, Metaphysics, Phenomenology, Philosophy of Mathematics</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMPLOYMENT -->
+    <section>
+        <p class="section-label">Employment</p>
+        <div class="cv-row">
+            <div class="cv-year">2020 – present</div>
+            <div class="cv-content"><strong>Professor of Philosophy</strong><br><span class="sub">University of Miami, Coral Gables, FL</span></div>
+        </div>
+        <div class="cv-row">
+            <div class="cv-year">2014 – 2020</div>
+            <div class="cv-content"><strong>Associate Professor of Philosophy</strong><br><span class="sub">University of Miami, Coral Gables, FL</span></div>
+        </div>
+        <div class="cv-row">
+            <div class="cv-year">2008 – 2014</div>
+            <div class="cv-content"><strong>Assistant Professor of Philosophy</strong><br><span class="sub">University of Miami, Coral Gables, FL</span></div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+        <p class="section-label">Education</p>
+        <div class="cv-row">
+            <div class="cv-year">2001 – 2008</div>
+            <div class="cv-content"><strong>Ph.D. in Philosophy</strong><br><span class="sub">Harvard University, Cambridge, MA</span></div>
+        </div>
+        <div class="cv-row">
+            <div class="cv-year">1997 – 2001</div>
+            <div class="cv-content"><strong>B.A. in Philosophy</strong><br><span class="sub">University of Florida, Gainesville, FL</span></div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section>
+        <p class="section-label">Publications</p>
+
+        <p class="pub-sub-label">Books</p>
+        <div class="pub-item"><em>Inferential Processes</em> (with Anna-Sara Malmgren). Under contract, Cambridge University Press.</div>
+        <div class="pub-item"><em>Forming Impressions: Expertise in Perception and Intuition</em>. 2020. Oxford University Press.</div>
+        <div class="pub-item"><em>Cognitive Phenomenology</em>. 2015. Routledge.</div>
+        <div class="pub-item"><em>Intuition</em>. 2013. Oxford University Press.</div>
+
+        <p class="pub-sub-label">Journal Articles</p>
+        <div class="pub-item">Inference, Logical Omniscience, and Fortunate Fallacies. Forthcoming. <em>Australasian Journal of Philosophy</em>.</div>
+        <div class="pub-item">What Mathematical Understanding Need Not Be (with Silvia De Toffoli). 2025. <em>Journal of Mathematical Behavior</em>.</div>
+        <div class="pub-item">The Nature and Value of Firsthand Insight. 2024. <em>Philosophical Studies</em>.</div>
+        <div class="pub-item">Skepticism Is Wrong for General Reasons. 2023. <em>International Journal for the Study of Skepticism</em> 13(2): 95–104.</div>
+        <div class="pub-item">Two Kinds of Cognitive Expertise. 2021. <em>Noûs</em> 55(2): 270–292.</div>
+        <div class="pub-item">In Search of Intuition. 2020. <em>Australasian Journal of Philosophy</em> 98(3): 465–480.</div>
+        <div class="pub-item">The Epistemic Significance of Perceptual Learning. 2018. <em>Inquiry</em> 61(5–6): 520–542.</div>
+        <div class="pub-item">How Perception Generates, Preserves, and Mediates Justification (with Bartek Chomanski). 2018. <em>Inquiry</em> 61(5–6): 559–568.</div>
+        <div class="pub-item">Epistemic Elitism and Other Minds. 2018. <em>Philosophy and Phenomenological Research</em> 96(2): 276–298.</div>
+        <div class="pub-item">The Reality of the Intuitive. 2017. <em>Inquiry</em> 60(4): 371–385.</div>
+        <div class="pub-item">Against Emotional Dogmatism (with Berit Brogaard). 2016. <em>Philosophical Issues</em> 26(1): 59–77.</div>
+        <div class="pub-item">Intuition, Presentational Phenomenology, and Awareness of Abstract Objects. 2016. <em>Florida Philosophical Review</em> 16(1): 117–128.</div>
+        <div class="pub-item">Phenomenal Contrast Arguments for Cognitive Phenomenology. 2015. <em>Philosophy and Phenomenological Research</em> 90(2): 82–104.</div>
+        <div class="pub-item">The Epistemic Unity of Perception (with David DiDomenico). 2015. <em>Pacific Philosophical Quarterly</em> 96(4): 535–549.</div>
+        <div class="pub-item">Awareness of Abstract Objects. 2013. <em>Noûs</em> 47(4): 706–726.</div>
+        <div class="pub-item">Gurwitsch's Phenomenal Holism. 2013. <em>Phenomenology and the Cognitive Sciences</em> 12(3): 559–578.</div>
+        <div class="pub-item">Is Intuition Based On Understanding? 2013. <em>Philosophy and Phenomenological Research</em> 86(1): 42–67.</div>
+        <div class="pub-item">Intuitive Knowledge. 2013. <em>Philosophical Studies</em> 162(2): 359–378.</div>
+        <div class="pub-item">What Intuitions Are Like. 2011. <em>Philosophy and Phenomenological Research</em> 82(3): 625–654.</div>
+        <div class="pub-item">The Nature of Intuitive Justification. 2011. <em>Philosophical Studies</em> 153(2): 313–333.</div>
+        <div class="pub-item">What Should a Theory of Knowledge Do? 2011. <em>Dialectica</em> 65(4): 561–579.</div>
+
+        <p class="pub-sub-label">Book Chapters</p>
+        <div class="pub-item">Reasoned Change in Logic. 2026. In K. McCain &amp; S. Stapleford (eds.), <em>Evidentialism at 40: New Arguments, New Angles</em>. Routledge.</div>
+        <div class="pub-item">Perceptually Secured Knowledge. 2025. In O. Beck &amp; F. Masrour (eds.), <em>The Relational View of Perception: New Philosophical Essays</em>. Routledge.</div>
+        <div class="pub-item">Inferential Seemings. 2024. In U. Kriegel (ed.), <em>Oxford Studies in the Philosophy of Mind</em>, Vol. 4. Oxford University Press.</div>
+        <div class="pub-item">How to Use Thought Experiments. 2024. In B. Roeber, E. Sosa, M. Steup &amp; J. Turri (eds.), <em>Contemporary Debates in Epistemology</em>, 3rd ed. Wiley-Blackwell.</div>
+        <div class="pub-item">How to Think About How to Use Thought Experiments. 2024. In B. Roeber, E. Sosa, M. Steup &amp; J. Turri (eds.), <em>Contemporary Debates in Epistemology</em>, 3rd ed. Wiley-Blackwell.</div>
+        <div class="pub-item">Veridical Perceptual Seemings. 2023. In K. McCain &amp; S. Stapleford (eds.), <em>Seemings: New Arguments, New Angles</em>. Routledge.</div>
+        <div class="pub-item">Consciousness and Knowledge (with Berit Brogaard). 2020. In U. Kriegel (ed.), <em>The Oxford Handbook of the Philosophy of Consciousness</em>. Oxford University Press.</div>
+        <div class="pub-item">Intuition in the Gettier Problem. 2019. In S. Heatherington (ed.), <em>Classic Philosophical Arguments: The Gettier Problem</em>. Cambridge University Press.</div>
+        <div class="pub-item">Experience and Epistemic Structure: Can Cognitive Penetration Result in Epistemic Downgrade? 2019. In T. Chan &amp; A. Nes (eds.), <em>Inference and Consciousness</em>. Routledge.</div>
+        <div class="pub-item">Multisensory Consciousness and Synesthesia (with Berit Brogaard). 2018. In R. J. Gennaro (ed.), <em>The Routledge Handbook of Consciousness</em>. Routledge.</div>
+        <div class="pub-item">Moral Perception: High Level Perception or Low Level Intuition? 2015. In D. Breyer &amp; C. Gutland (eds.), <em>Phenomenology of Thinking</em>. Routledge.</div>
+        <div class="pub-item">The Rational Roles of Intuition. 2014. In A. Booth &amp; D. Rowbottom (eds.), <em>Intuitions</em>. Oxford University Press.</div>
+        <div class="pub-item">Intuition in Mathematics. 2014. In L. Held &amp; B. Osbeck (eds.), <em>Rational Intuition</em>. Cambridge University Press.</div>
+        <div class="pub-item">Intellectual Gestalts. 2013. In U. Kriegel (ed.), <em>Phenomenal Intentionality</em>. Oxford University Press.</div>
+        <div class="pub-item">Presentational Phenomenology. 2012. In S. Miguens &amp; G. Preyer (eds.), <em>Consciousness and Subjectivity</em>. Ontos Verlag.</div>
+
+        <p class="pub-sub-label">Book Reviews</p>
+        <div class="pub-item">Review of <em>Philosophical Methodology: From Data to Theory</em>, by J. Bengson, T. Cuneo &amp; R. Shafer-Landau. 2025. <em>Australasian Journal of Philosophy</em> 103(2): 560–562.</div>
+        <div class="pub-item">Review of <em>The Epistemic Role of Consciousness</em>, by D. Smithies. 2021. <em>The Philosophical Review</em> 130(4): 605–609.</div>
+        <div class="pub-item">Review of <em>The Centered Mind</em>, by P. Carruthers. 2016. <em>Notre Dame Philosophical Reviews</em>.</div>
+        <div class="pub-item">Review of <em>On Reflection</em>, by H. Kornblith. 2015. <em>Mind</em> 124(496): 1319–1322.</div>
+        <div class="pub-item">Review of <em>Seemings and Justification</em>, ed. Tucker. 2014. <em>Notre Dame Philosophical Reviews</em>.</div>
+        <div class="pub-item">Review of <em>What Place for the A Priori?</em>, ed. Shaffer &amp; Veber. 2011. <em>Notre Dame Philosophical Reviews</em>.</div>
+        <div class="pub-item">Review of <em>Mathematical Knowledge</em>, ed. Leng, Paseau &amp; Potter. 2009. <em>Mind</em> 118(471): 846–850.</div>
+    </section>
+</main>
+<footer>
+    <div class="footer-links">
+        <a href="https://philpapers.org/autosense.pl?searchStr=Elijah+Chudnoff" target="_blank">PhilPapers</a>
+        <a href="https://scholar.google.com/citations?user=tmJ2WJMAAAAJ" target="_blank">Google Scholar</a>
+        <a href="mailto:e.chudnoff@miami.edu">e.chudnoff@miami.edu</a>
+    </div>
+</footer>
+</body>
+</html>
